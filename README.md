@@ -1,3 +1,19 @@
+# Airflow Helm
+Override the stable/airflow chart for Kubernetes with `stable/airflow/values-k8s.yaml`
+Also added `stable/airflow/templates/configmap-airflow-worker.yaml`
+
+Sample DAG in `airflow/k8s-sample-dag.py`
+
+
+To deploy: 
+`helm install --namespace airflow airflow -f ./stable/airflow/values-k8s.yaml ./stable/airflow`
+
+Be sure Minikube setup has sufficient memory (3GB), CPUs (4) using VirtualBox on Mac OSX.
+
+e.g.
+`minikube start --vm-driver=virtualbox --kubernetes-version=1.17.3 --cpus=4 --memory='3gb'`
+
+
 # Helm Charts
 
 The canonical source for Helm charts is the [Helm Hub](https://hub.helm.sh/), an aggregator for distributed chart repos.
